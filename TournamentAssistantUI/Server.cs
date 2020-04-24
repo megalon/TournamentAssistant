@@ -331,7 +331,7 @@ namespace TournamentAssistantUI
                     secondaryInfo = $"{secondaryInfo} ({((packet.SpecificPacket as Event).changedObject as Match).CurrentlySelectedDifficulty})";
                 }
             }
-            Logger.Info($"Recieved: ({packet.Type}) ({secondaryInfo})");
+            Logger.Debug($"Recieved: ({packet.Type}) ({secondaryInfo})");
             #endregion LOGGING
 
             if (packet.Type == PacketType.SongList)

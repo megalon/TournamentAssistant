@@ -45,7 +45,7 @@ namespace TournamentAssistant.Behaviors
         private void ScoreUpdated(int score, float time)
         {
             //Send score update
-            TournamentAssistantShared.Logger.Info($"SENDING UPDATE SCORE: {score}");
+            TournamentAssistantShared.Logger.Debug($"SENDING UPDATE SCORE: {score}");
             Plugin.client.Self.CurrentScore = score;
             var playerUpdate = new Event();
             playerUpdate.eventType = Event.EventType.PlayerUpdated;

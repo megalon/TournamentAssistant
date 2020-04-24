@@ -63,7 +63,7 @@ namespace TournamentAssistant
                     playerUpdated.changedObject = client.Self;
                     client.Send(new Packet(playerUpdated));
 
-                    new GameObject("ScoreMonitor").AddComponent<InGameScoreMonitor>();
+                    //new GameObject("ScoreMonitor").AddComponent<InGameScoreMonitor>();
 
                     if (UseSyncController)
                     {

@@ -150,7 +150,7 @@ namespace TournamentAssistant
             }
             #endregion Logging
 
-            Logger.Info($"Recieved: ({packet.Type}) ({secondaryInfo})");
+            Logger.Debug($"Recieved: ({packet.Type}) ({secondaryInfo})");
 
             if (packet.Type == PacketType.TournamentState)
             {
@@ -260,7 +260,7 @@ namespace TournamentAssistant
                     //Notify any listeners of the client that a song has been loaded
                     LoadedSong?.Invoke(loadedLevel);
 
-                    Logger.Info($"SENT DOWNLOADED SIGNAL {(playerUpdate.changedObject as Player).CurrentDownloadState}");
+                    Logger.Debug($"SENT DOWNLOADED SIGNAL {(playerUpdate.changedObject as Player).CurrentDownloadState}");
                 };
 
                 if (OstHelper.IsOst(loadSong.levelId))
@@ -291,7 +291,7 @@ namespace TournamentAssistant
 
                                 Send(new Packet(playerUpdated));
 
-                                Logger.Info($"SENT DOWNLOADED SIGNAL {(playerUpdated.changedObject as Player).CurrentDownloadState}");
+                                Logger.Debug($"SENT DOWNLOADED SIGNAL {(playerUpdated.changedObject as Player).CurrentDownloadState}");
                             }
                         };
 
@@ -302,7 +302,7 @@ namespace TournamentAssistant
                         playerUpdate.changedObject = Self;
                         Send(new Packet(playerUpdate));
 
-                        Logger.Info($"SENT DOWNLOAD SIGNAL {(playerUpdate.changedObject as Player).CurrentDownloadState}");
+                        Logger.Debug($"SENT DOWNLOAD SIGNAL {(playerUpdate.changedObject as Player).CurrentDownloadState}");
 
                         SongDownloader.DownloadSong(loadSong.levelId, songDownloaded: loadSongAction, downloadProgressChanged: (progress) => Logger.Info($"DOWNLOAD PROGRESS: {progress}"));
                     }

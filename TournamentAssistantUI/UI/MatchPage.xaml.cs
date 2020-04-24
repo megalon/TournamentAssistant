@@ -581,7 +581,7 @@ namespace TournamentAssistantUI.UI
         {
             var playersText = string.Empty;
             foreach (var player in Match.Players) playersText += $"{player.Name}, ";
-            Logger.Info($"Sending {packet.Type} to {playersText}");
+            Logger.Debug($"Sending {packet.Type} to {playersText}");
             MainPage.Connection.Send(Match.Players.Select(x => x.Guid).ToArray(), packet);
         }
 
