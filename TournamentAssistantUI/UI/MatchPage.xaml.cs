@@ -136,7 +136,7 @@ namespace TournamentAssistantUI.UI
             PlaySong = new CommandImplementation(PlaySong_Executed, PlaySong_CanExecute);
             PlaySongWithSync = new CommandImplementation(PlaySongWithSync_Executed, PlaySong_CanExecute);
             ReturnToMenu = new CommandImplementation(ReturnToMenu_Executed, ReturnToMenu_CanExecute);
-            ClosePage = new CommandImplementation(ClosePage_Executed, (_) => true);
+            ClosePage = new CommandImplementation(ClosePage_Executed, (_) => MainPage.Connection.Self.Name == "HOST" || MainPage.Connection.Self.Name == "Olaf");
             DestroyAndCloseMatch = new CommandImplementation(DestroyAndCloseMatch_Executed, (_) => true);
 
             OSTPicker.SelectionChanged += OSTPicker_SelectionChanged;
@@ -473,9 +473,9 @@ namespace TournamentAssistantUI.UI
                 int playerId = i;
                 pixelReaders.Add(new PixelReader(new Point(Match.Players[i].StreamScreenCoordinates.x, Match.Players[i].StreamScreenCoordinates.y), (color) =>
                 {
-                    return (Colors.Green.R - 30 <= color.R && color.R <= Colors.Green.R + 30) &&
-                        (Colors.Green.G - 30 <= color.G && color.G <= Colors.Green.G + 30) &&
-                        (Colors.Green.B - 30 <= color.B && color.B <= Colors.Green.B + 30);
+                    return (Colors.Green.R - 60 <= color.R && color.R <= Colors.Green.R + 60) &&
+                        (Colors.Green.G - 60 <= color.G && color.G <= Colors.Green.G + 60) &&
+                        (Colors.Green.B - 60 <= color.B && color.B <= Colors.Green.B + 60);
 
                 }, () =>
                 {

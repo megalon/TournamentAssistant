@@ -33,7 +33,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button Content="{materialDesign:PackIcon ArrowLeft}" ToolTip="Go Back" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding ClosePage}"/>
+                <Button Content="{materialDesign:PackIcon ArrowLeft}" ToolTip="Guyyyyys you're only supposed to use this when you don't wanna destroy the match" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding ClosePage}"/>
                 <Button Content="{materialDesign:PackIcon Close}" ToolTip="End Match" HorizontalAlignment="Right" VerticalAlignment="Top" Command="{Binding DestroyAndCloseMatch}"/>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
