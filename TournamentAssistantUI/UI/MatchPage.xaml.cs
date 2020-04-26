@@ -473,10 +473,9 @@ namespace TournamentAssistantUI.UI
                 int playerId = i;
                 pixelReaders.Add(new PixelReader(new Point(Match.Players[i].StreamScreenCoordinates.x, Match.Players[i].StreamScreenCoordinates.y), (color) =>
                 {
-                    return (Colors.Green.R - 60 <= color.R && color.R <= Colors.Green.R + 60) &&
-                        (Colors.Green.G - 60 <= color.G && color.G <= Colors.Green.G + 60) &&
-                        (Colors.Green.B - 60 <= color.B && color.B <= Colors.Green.B + 60);
-
+                    return (Colors.Green.R - 50 <= color.R && color.R <= Colors.Green.R + 50) &&
+                        (Colors.Green.G - 50 <= color.G && color.G <= Colors.Green.G + 50) &&
+                        (Colors.Green.B - 50 <= color.B && color.B <= Colors.Green.B + 50);
                 }, () =>
                 {
                     Logger.Info($"{Match.Players[playerId].Name} GREEN DETECTED");
