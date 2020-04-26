@@ -130,6 +130,7 @@ namespace TournamentAssistantShared
             }
             return returnValue;
         }
+
         public static bool StreamIsAtPacket(MemoryStream stream, bool resetStreamPos = true)
         {
             var magicFlagBytes = new byte[sizeof(byte) * 4];
@@ -144,6 +145,7 @@ namespace TournamentAssistantShared
 
         public static bool PotentiallyValidPacket(byte[] bytes)
         {
+            var returnValue = false;
             using (var stream = new MemoryStream(bytes))
             {
                 var typeBytes = new byte[sizeof(int)];
@@ -161,9 +163,9 @@ namespace TournamentAssistantShared
 
                 stream.Seek(-(sizeof(byte) * 4 + sizeof(int) * 2), SeekOrigin.Current); //Return to original position in stream
 
-                return (BitConverter.ToInt32(sizeBytes, 0) + packetHeaderSize) <= bytes.Length;
+                returnValue = (BitConverter.ToInt32(sizeBytes, 0) + packetHeaderSize) <= bytes.Length;
             }
-            return false;
+            return returnValue;
         }
 
         private static byte[] Combine(params byte[][] arrays)
