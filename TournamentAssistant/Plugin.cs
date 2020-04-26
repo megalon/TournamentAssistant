@@ -39,7 +39,7 @@ namespace TournamentAssistant
         public void OnEnable()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.sceneLoaded += OnSceneUnloaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
             SongUtils.OnEnable();
             CreateMenuButton();
         }
@@ -74,7 +74,7 @@ namespace TournamentAssistant
             }
         }
 
-        public void OnSceneUnloaded(Scene scene, LoadSceneMode _)
+        public void OnSceneUnloaded(Scene scene)
         {
             if (scene.name == "GameCore")
             {

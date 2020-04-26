@@ -31,7 +31,7 @@ namespace TournamentAssistant.Utilities
         private static void Loader_SongsLoadedEvent(Loader arg1, Dictionary<string, CustomPreviewBeatmapLevel> arg2)
         {
             RefreshLoadedSongs();
-            SendLoadedSongs();
+            //SendLoadedSongs();
         }
 
         private static void SendLoadedSongs()
